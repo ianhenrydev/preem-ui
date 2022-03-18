@@ -3,9 +3,21 @@
   "version": "0.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "keywords": [],
+  "keywords": [
+    "react-native",
+    "react-native-web",
+    "components",
+    "ui",
+    "theme"
+  ],
   "author": "Ian Henry <me@ianhenry.dev> (https://ianhenry.dev/)",
   "license": "MIT",
+  "homepage": "https://github.com/ianhenrydev/preem-ui",
+  "bugs": "https://github.com/ianhenrydev/preem-ui/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ianhenrydev/preem-ui.git"
+  },
   "scripts": {
     "build": "npx tsc"
   },
