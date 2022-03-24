@@ -1,6 +1,6 @@
 src/
+example/
 .yarn/
 .prettierrc
 .yarnrc.yml
-index.ts
 tsconfig.json

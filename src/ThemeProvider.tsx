@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from 'react'
 
-export type ThemeType = 'darkBlue' | 'light'
+type ThemeType = 'darkBlue' | 'light'
 
 interface Theme {
   type: ThemeType
@@ -66,7 +66,13 @@ const reducer = (state: IState, action: Action): IState => {
 }
 
 export const ThemeProvider = ({ children }: any) => {
-  return <ThemeContext.Provider value={useReducer(reducer, { theme: darkBlueTheme })}>{children}</ThemeContext.Provider>
+  const themeReducer = useReducer(reducer, { theme: darkBlueTheme })
+  return <ThemeContext.Provider value={themeReducer}>{children}</ThemeContext.Provider>
 }
 
-export const useTheme = () => useContext(ThemeContext)
+export const useTheme = (): [IState, React.Dispatch<Action> | null] => {
+  if (!!ThemeContext) {
+    return useContext(ThemeContext)
+  }
+  return [{ theme: darkBlueTheme }, null]
+}

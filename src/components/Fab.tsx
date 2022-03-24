@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import React, { useCallback } from 'react'
 import { Image, ImageSourcePropType, StyleSheet, TouchableOpacity } from 'react-native'
 import { useTheme } from '../ThemeProvider'
 

@@ -1,2 +1,2 @@
 export * from './components'
-export { ThemeProvider, ThemeType, useTheme } from './ThemeProvider'
+export { ThemeProvider, useTheme } from './ThemeProvider'
