@@ -1,11 +1,11 @@
-import React, { useCallback } from 'react'
+import React, { useMemo } from 'react'
 import { StyleSheet, Text, TextProps } from 'react-native'
 import { useTheme } from '../ThemeProvider'
 
 export default function PreemText(props: TextProps) {
   const [{ theme }] = useTheme()
 
-  const styles = useCallback(() => {
+  const styles = useMemo(() => {
     return StyleSheet.create({
       text: {
         color: theme.colors.text,
@@ -13,5 +13,5 @@ export default function PreemText(props: TextProps) {
     })
   }, [theme])
 
-  return <Text {...props} style={[styles().text, props.style]} />
+  return <Text {...props} style={[styles.text, props.style]} />
 }

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useMemo } from 'react'
 import { Image, ImageSourcePropType, StyleSheet, TouchableOpacity } from 'react-native'
 import { useTheme } from '../ThemeProvider'
 
@@ -11,7 +11,7 @@ export default function Fab(props: Props) {
   const { imageSource, onPress } = props
   const [{ theme }] = useTheme()
 
-  const styles = useCallback(() => {
+  const styles = useMemo(() => {
     return StyleSheet.create({
       container: {
         position: 'absolute',
@@ -28,7 +28,7 @@ export default function Fab(props: Props) {
   }, [theme])
 
   return (
-    <TouchableOpacity style={styles().container} onPress={onPress}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       {imageSource && <Image source={imageSource} style={{ width: 48, height: 48 }} />}
     </TouchableOpacity>
   )

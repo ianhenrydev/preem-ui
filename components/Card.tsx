@@ -1,11 +1,11 @@
-import React, { useCallback } from 'react'
+import React, { useMemo } from 'react'
 import { StyleSheet, View, ViewProps } from 'react-native'
 import { useTheme } from '../ThemeProvider'
 
 export default function Card(props: ViewProps) {
   const [{ theme }] = useTheme()
 
-  const styles = useCallback(() => {
+  const styles = useMemo(() => {
     return StyleSheet.create({
       card: {
         backgroundColor: theme.colors.card,
@@ -16,5 +16,5 @@ export default function Card(props: ViewProps) {
     })
   }, [theme])
 
-  return <View {...props} style={[styles().card, props.style]} />
+  return <View {...props} style={[styles.card, props.style]} />
 }
