@@ -32,6 +32,7 @@ export default function PreemButton(props: ButtonProps) {
       },
       buttonText: {
         fontSize: 16,
+        color: '#fff',
       },
       disabled: {
         opacity: 0.4,
