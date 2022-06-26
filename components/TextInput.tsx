@@ -14,6 +14,9 @@ export default function PreemTextInput(props: TextInputProps) {
         padding: 10,
         backgroundColor: theme.colors.card,
         borderRadius: 4,
+        borderColor: theme.colors.border,
+        borderWidth: 1,
+        borderStyle: 'solid',
       },
     })
   }, [theme])
