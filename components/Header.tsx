@@ -20,7 +20,8 @@ export default function Header(props: IProps) {
         borderBottomWidth: 1,
         borderStyle: 'solid',
         width: '100%',
-        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
       },
       text: {
         fontSize: 22,
