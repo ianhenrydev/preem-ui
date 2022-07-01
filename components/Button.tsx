@@ -1,18 +1,19 @@
-import React, { useMemo } from 'react'
-import { Image, ImageSourcePropType, StyleProp, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native'
+import React, { ReactNode, useMemo } from 'react'
+import { Image, ImageSourcePropType, StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native'
 import { useTheme } from '../ThemeProvider'
 import Text from './Text'
 
 interface ButtonProps {
   disabled?: boolean
   icon?: ImageSourcePropType
+  iconComponent?: ReactNode
   onPress?(): void
   style?: StyleProp<ViewStyle>
   title: string
 }
 
 export default function PreemButton(props: ButtonProps) {
-  const { disabled, icon, title, style, onPress } = props
+  const { disabled, icon, iconComponent, title, style, onPress } = props
   const [{ theme }] = useTheme()
 
   const styles = useMemo(() => {
@@ -43,6 +44,7 @@ export default function PreemButton(props: ButtonProps) {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.button, disabled ? styles.disabled : {}, style]} disabled={disabled}>
       {icon && <Image style={{ height: 24, width: 24, marginRight: 8 }} source={icon} />}
+      {!!iconComponent && <View style={{ marginRight: 8 }}>{iconComponent}</View>}
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   )

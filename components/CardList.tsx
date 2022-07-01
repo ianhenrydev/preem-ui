@@ -3,6 +3,8 @@ import { FlatList, FlatListProps, ListRenderItem, ListRenderItemInfo, TouchableO
 import Card from './Card'
 import Loading from './Loading'
 
+const cardMargin = 6
+
 interface CardListItemProps {
   cardWidth: number
   children: React.ReactElement
@@ -13,7 +15,7 @@ interface CardListItemProps {
 function CardListItem(props: CardListItemProps) {
   return (
     <TouchableOpacity
-      style={{ width: props.cardWidth, margin: 6 }}
+      style={{ width: props.cardWidth, margin: cardMargin }}
       onPress={props.onItemPress}
       onLongPress={props.onItemLongPress}
       disabled={!props.onItemPress}
@@ -37,7 +39,7 @@ export default function CardList<T>(props: CardListProps<T>) {
     if (!!props.numColumns) {
       return props.numColumns
     }
-    return !!window?.width ? Math.floor(window.width / props.cardWidth) : 1
+    return !!window?.width ? Math.floor(window.width / (props.cardWidth + cardMargin * 2)) : 1
   }, [window, props.cardWidth, props.numColumns])
 
   const renderItem: ListRenderItem<T> = (info: ListRenderItemInfo<T>) => {
